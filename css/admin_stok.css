@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CHILLBITE - Admin Stok Stylesheet (css/admin_stok.css)
+   ========================================================================== */
+
+.progress-bar-bg {
+  background-color: var(--abu-kebiruan);
+  border-radius: var(--radius-full);
+  height: 8px;
+  width: 80px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}

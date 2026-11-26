@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Kelola Profil Pelanggan</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .kontainer-profil {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    .layout-profil-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .kartu-foto-profil {
+      background-color: var(--putih);
+      padding: 30px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      text-align: center;
+    }
+    .avatar-profil {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--oranye) 0%, #ff8d28 100%);
+      color: var(--putih);
+      font-size: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+    }
+    .kartu-form-profil {
+      background-color: var(--putih);
+      padding: 32px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+    }
+    .form-group-profil {
+      margin-bottom: 18px;
+    }
+    .form-group-profil label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--biru-tua);
+      margin-bottom: 6px;
+    }
+    .form-group-profil input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--abu-kebiruan);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--biru-tua);
+      outline: none;
+    }
+    @media (max-width: 768px) {
+      .layout-profil-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn aktif" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <main class="kontainer-profil">
+    <!-- Breadcrumb -->
+    <div class="jejak-halaman">
+      <a href="beranda.html">Beranda</a> &gt; <span>Kelola Profil</span>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h1 style="font-size: 28px; font-weight: 800; color: var(--biru-tua);">Kelola Profil</h1>
+      <p style="color: var(--teks-redup); font-size: 14px;">Perbarui data pribadi dan kata sandi akun FROZENFOOD Anda.</p>
+    </div>
+
+    <!-- Layout Grid (Mockup 10_profil_pelanggan.png) -->
+    <div class="layout-profil-grid">
+      <!-- Sisi Kiri: Foto Profil -->
+      <aside class="kartu-foto-profil">
+        <div class="avatar-profil">👤</div>
+        <h3 style="font-size: 18px; color: var(--biru-tua); margin-bottom: 4px;">Budi Santoso</h3>
+        <p style="font-size: 13px; color: var(--teks-redup); margin-bottom: 18px;">Member sejak 2024</p>
+        <button class="btn-sekunder" style="width: 100%; justify-content: center;" onclick="alert('Pilih foto baru dari galeri komputer Anda.')">
+          📷 Ganti Foto
+        </button>
+      </aside>
+
+      <!-- Sisi Kanan: Formulir Data Diri -->
+      <section class="kartu-form-profil">
+        <h3 style="font-size: 18px; font-weight: 800; color: var(--biru-tua); margin-bottom: 20px;">Informasi Akun</h3>
+        <form id="form-edit-profil">
+          <div class="form-group-profil">
+            <label for="nama_lengkap">Nama Lengkap</label>
+            <input type="text" id="nama_lengkap" value="Budi Santoso" required>
+          </div>
+
+          <div class="form-group-profil">
+            <label for="username">Nama Pengguna</label>
+            <input type="text" id="username" value="budisantoso" required>
+          </div>
+
+          <div class="form-group-profil">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" value="budi.santoso@example.com" required>
+          </div>
+
+          <div class="form-group-profil">
+            <label for="password_baru">Kata Sandi Baru</label>
+            <input type="password" id="password_baru" placeholder="Masukkan kata sandi baru (kosongkan jika tidak diubah)">
+            <span style="font-size: 12px; color: var(--teks-redup); margin-top: 4px; display: block;">
+              Minimal 6 karakter dengan kombinasi huruf dan angka
+            </span>
+          </div>
+
+          <button type="submit" class="btn-utama" style="margin-top: 10px; padding: 12px 24px;">
+            Simpan Perubahan
+          </button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('form-edit-profil').addEventListener('submit', (e) => {
+      e.preventDefault();
+      CHILLBITE_DATA.tampilkanToast("✅ Data profil berhasil diperbarui!");
+    });
+  </script>
+</body>
+</html>

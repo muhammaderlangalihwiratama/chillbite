@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Katalog Produk Frozen Food</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/katalog.css">
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html" class="aktif">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <!-- Konten Utama Katalog -->
+  <main class="kontainer-katalog">
+    <!-- Breadcrumb -->
+    <div class="jejak-halaman">
+      <a href="beranda.html">Beranda</a> &gt; <span>Katalog Produk</span>
+    </div>
+
+    <div class="kepala-halaman-katalog">
+      <div class="judul-katalog">
+        <h1>Katalog Produk</h1>
+        <p>Menampilkan 8 produk frozen food terbaik untuk Anda</p>
+      </div>
+
+      <form action="pencarian.html" method="GET" class="kotak-cari-katalog">
+        <input type="text" name="q" placeholder="Cari produk..." value="">
+        <button type="submit" class="btn-utama" style="padding: 6px 14px; font-size: 13px;">Cari</button>
+      </form>
+    </div>
+
+    <div class="layout-grid-katalog">
+      <!-- Sisi Kiri: Panel Filter -->
+      <aside class="panel-filter">
+        <div class="judul-filter">
+          <span>Filter Kategori</span>
+          <a href="katalog.html" style="font-size: 12px; color: var(--oranye); text-decoration: none;">Atur ulang</a>
+        </div>
+
+        <div class="seksi-filter">
+          <ul class="daftar-kategori-filter" id="filter-kategori-list">
+            <li class="item-kategori-filter aktif" data-filter="semua">
+              <span>Semua Produk</span>
+              <span class="jumlah">8</span>
+            </li>
+            <li class="item-kategori-filter" data-filter="nugget-sosis">
+              <span>Nugget &amp; Sosis</span>
+              <span class="jumlah">2</span>
+            </li>
+            <li class="item-kategori-filter" data-filter="bakso">
+              <span>Bakso</span>
+              <span class="jumlah">1</span>
+            </li>
+            <li class="item-kategori-filter" data-filter="dimsum">
+              <span>Dimsum</span>
+              <span class="jumlah">1</span>
+            </li>
+            <li class="item-kategori-filter" data-filter="camilan">
+              <span>Camilan</span>
+              <span class="jumlah">2</span>
+            </li>
+            <li class="item-kategori-filter" data-filter="daging-seafood">
+              <span>Daging &amp; Seafood</span>
+              <span class="jumlah">2</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="seksi-filter">
+          <h4>Rentang Harga</h4>
+          <p style="font-size: 13px; font-weight: 700; color: var(--biru-tua); margin-bottom: 8px;">Rp 24.000 - Rp 75.000</p>
+          <label style="font-size: 13px; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="check-promo" style="accent-color: var(--oranye);">
+            Hanya produk promo
+          </label>
+        </div>
+
+        <div class="kartu-info-filter">
+          <strong>❄️ Dikirim Tetap Beku</strong>
+          <p>Rantai dingin terjaga dengan packaging insulated khusus agar kualitas tetap prima sampai rumah Anda.</p>
+        </div>
+      </aside>
+
+      <!-- Sisi Kanan: Grid Produk & Toolbar -->
+      <section>
+        <div class="toolbar-katalog">
+          <span style="font-size: 13px; color: var(--teks-redup);">Urutkan berdasarkan:</span>
+          <select id="sort-produk" style="padding: 6px 12px; border-radius: 6px; border: 1.5px solid var(--abu-kebiruan); font-size: 13px; outline: none;">
+            <option value="populer">Terpopuler</option>
+            <option value="termurah">Harga: Rendah ke Tinggi</option>
+            <option value="termahal">Harga: Tinggi ke Rendah</option>
+          </select>
+        </div>
+
+        <div class="grid-produk-katalog" id="wadah-produk-katalog">
+          <!-- Produk 1 -->
+          <article class="kartu-katalog-item" data-kategori="bakso" data-harga="26500">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/frozen food.jpg" alt="Bakso Sapi" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">BAKSO</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Bakso Sapi</a>
+              <span class="harga-produk-katalog">Rp 26.500</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(3)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 2 -->
+          <article class="kartu-katalog-item" data-kategori="nugget-sosis" data-harga="30000">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/gambar frozen food.jpg" alt="Nugget Ayam" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">NUGGET &amp; SOSIS</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Nugget Ayam</a>
+              <span class="harga-produk-katalog">Rp 30.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(1)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 3 -->
+          <article class="kartu-katalog-item" data-kategori="dimsum" data-harga="42000">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/Frozen Foods & Ready Meals Online UAE _ Martoo_ae.jpg" alt="Dimsum Ayam" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">DIMSUM</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Dimsum Ayam</a>
+              <span class="harga-produk-katalog">Rp 42.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(4)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 4 -->
+          <article class="kartu-katalog-item" data-kategori="daging-seafood" data-harga="38000">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/Frozen Foods & Ready Meals Online UAE _ Martoo_ae.jpg" alt="Udang Keju" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">DAGING &amp; SEAFOOD</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Udang Keju</a>
+              <span class="harga-produk-katalog">Rp 38.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(7)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 5 -->
+          <article class="kartu-katalog-item" data-kategori="camilan" data-harga="27000">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/Supermarket Cold Storage in UAE _ Fresh Food Refrigeration.jpg" alt="Kentang Goreng" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">CAMILAN</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Kentang Goreng</a>
+              <span class="harga-produk-katalog">Rp 27.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(2)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 6 -->
+          <article class="kartu-katalog-item" data-kategori="nugget-sosis" data-harga="45000">
+            <span class="badge-tag-produk">Terlaris</span>
+            <img src="../assets/images/MISI SEAFOOD FLIER DESIGN.jpg" alt="Sosis Ayam" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">NUGGET &amp; SOSIS</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Sosis Ayam</a>
+              <span class="harga-produk-katalog">Rp 45.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(5)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 7 -->
+          <article class="kartu-katalog-item promo-item" data-kategori="camilan" data-harga="24000">
+            <span class="badge-tag-promo">Promo</span>
+            <img src="../assets/images/gambar frozen food.jpg" alt="Cireng Crispy" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">CAMILAN</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Cireng Crispy</a>
+              <span class="harga-produk-katalog">Rp 24.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(8)">🛒 Beli</button>
+            </div>
+          </article>
+
+          <!-- Produk 8 -->
+          <article class="kartu-katalog-item promo-item" data-kategori="daging-seafood" data-harga="75000">
+            <span class="badge-tag-promo">Promo</span>
+            <img src="../assets/images/gambar ayam.jpeg" alt="Cheese Steak" class="foto-produk-katalog">
+            <div class="info-produk-katalog">
+              <span class="kategori-label">DAGING &amp; SEAFOOD</span>
+              <a href="detail_produk.html" class="nama-produk-katalog">Cheese Steak</a>
+              <span class="harga-produk-katalog">Rp 75.000</span>
+              <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(6)">🛒 Beli</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Banner Belanja Lebih Hemat -->
+        <div class="banner-promo-katalog">
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 6px;">Belanja lebih hemat!</h3>
+            <p style="font-size: 13px; opacity: 0.9;">Cek produk berlabel Promo dan isi freezer-mu hari ini.</p>
+          </div>
+          <button class="btn-utama" onclick="document.getElementById('check-promo').click()">Lihat Promo &rarr;</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/katalog.js"></script>
+</body>
+</html>

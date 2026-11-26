@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Checkout Pesanan</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .kontainer-checkout {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    /* Tahapan Indikator (Mockup 08_checkout.png) */
+    .tahapan-checkout {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .tahap-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--teks-redup);
+    }
+    .tahap-item.aktif {
+      color: var(--oranye);
+    }
+    .nomor-tahap {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--abu-kebiruan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .tahap-item.aktif .nomor-tahap {
+      background-color: var(--oranye);
+      color: var(--putih);
+    }
+    .layout-checkout-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .kartu-checkout {
+      background-color: var(--putih);
+      padding: 28px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      margin-bottom: 24px;
+    }
+    .kartu-checkout h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--biru-tua);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .form-group-checkout {
+      margin-bottom: 16px;
+    }
+    .form-group-checkout label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--biru-tua);
+      margin-bottom: 6px;
+    }
+    .form-group-checkout input,
+    .form-group-checkout textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--abu-kebiruan);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--biru-tua);
+      outline: none;
+      font-family: inherit;
+    }
+    .metode-bayar-pilihan {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .opsi-bayar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1.5px solid var(--abu-kebiruan);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .opsi-bayar input {
+      accent-color: var(--oranye);
+    }
+    .baris-ringkasan {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .baris-total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 2px dashed var(--abu-kebiruan);
+      margin-top: 14px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--biru-tua);
+    }
+    @media (max-width: 850px) {
+      .layout-checkout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <main class="kontainer-checkout">
+    <!-- Indikator 4 Tahap -->
+    <div class="tahapan-checkout">
+      <div class="tahap-item">
+        <span class="nomor-tahap">✓</span>
+        <span>Keranjang</span>
+      </div>
+      <div class="tahap-item aktif">
+        <span class="nomor-tahap">2</span>
+        <span>Checkout</span>
+      </div>
+      <div class="tahap-item">
+        <span class="nomor-tahap">3</span>
+        <span>Pembayaran</span>
+      </div>
+      <div class="tahap-item">
+        <span class="nomor-tahap">4</span>
+        <span>Selesai</span>
+      </div>
+    </div>
+
+    <div class="layout-checkout-grid">
+      <!-- Kolom Kiri: Alamat Pengiriman & Metode Pembayaran -->
+      <div>
+        <section class="kartu-checkout">
+          <h3>📍 Alamat Pengiriman</h3>
+          <div class="form-group-checkout">
+            <label for="nama_penerima">Nama Penerima</label>
+            <input type="text" id="nama_penerima" value="Budi Santoso">
+          </div>
+          <div class="form-group-checkout">
+            <label for="alamat_lengkap">Alamat Lengkap</label>
+            <textarea id="alamat_lengkap" rows="3">Jl. Merdeka No. 45, Kecamatan Gambir, Jakarta Pusat, 10110</textarea>
+          </div>
+          <div class="form-group-checkout">
+            <label for="no_telepon">No. Telepon</label>
+            <input type="text" id="no_telepon" value="081234567890">
+          </div>
+        </section>
+
+        <section class="kartu-checkout">
+          <h3>💳 Metode Pembayaran</h3>
+          <div class="metode-bayar-pilihan">
+            <label class="opsi-bayar">
+              <input type="radio" name="metode" value="transfer" checked>
+              <span>🏦 Transfer Bank (BCA / Mandiri / BRI)</span>
+            </label>
+            <label class="opsi-bayar">
+              <input type="radio" name="metode" value="cod">
+              <span>💵 Cash on Delivery (COD)</span>
+            </label>
+            <label class="opsi-bayar">
+              <input type="radio" name="metode" value="ewallet">
+              <span>📱 E-Wallet (GoPay / OVO / ShopeePay)</span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <!-- Kolom Kanan: Ringkasan Pesanan Lengkap -->
+      <div>
+        <section class="kartu-checkout">
+          <h3>🛒 Ringkasan Pesanan</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px;">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span>Nugget Ayam Premium (2x)</span>
+              <strong>Rp 90.000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span>Kentang Goreng Premium (1x)</span>
+              <strong>Rp 50.000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span>Bakso Sapi (3x)</span>
+              <strong>Rp 79.500</strong>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--abu-kebiruan); padding-top: 14px;">
+            <div class="baris-ringkasan">
+              <span style="color: var(--teks-redup);">Subtotal</span>
+              <span>Rp 219.500</span>
+            </div>
+            <div class="baris-ringkasan">
+              <span style="color: var(--teks-redup);">Ongkos Kirim (Cold Storage)</span>
+              <span>Rp 15.000</span>
+            </div>
+            <div class="baris-ringkasan">
+              <span style="color: var(--teks-redup);">Diskon Promo Ongkir</span>
+              <span style="color: var(--hijau); font-weight: 700;">-Rp 15.000</span>
+            </div>
+            <div class="baris-total">
+              <span>Total Pembayaran:</span>
+              <span style="color: var(--oranye);">Rp 219.500</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-utama" id="btn-buat-pesanan" style="width: 100%; justify-content: center; padding: 14px; margin-top: 24px; font-size: 16px;">
+            Buat Pesanan Sekarang &rarr;
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('btn-buat-pesanan').addEventListener('click', () => {
+      alert('🎉 Pesanan Anda #INV-004 berhasil dibuat! Mengalihkan ke riwayat pesanan...');
+      window.location.href = 'riwayat_pelanggan.html';
+    });
+  </script>
+</body>
+</html>

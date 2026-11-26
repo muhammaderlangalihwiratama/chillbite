@@ -1,0 +1,257 @@
+/* ==========================================================================
+   CHILLBITE - Katalog Stylesheet (css/katalog.css)
+   ========================================================================== */
+
+.kontainer-katalog {
+  max-width: 1240px;
+  margin: 30px auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.kepala-halaman-katalog {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.judul-katalog h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--biru-tua);
+}
+
+.judul-katalog p {
+  color: var(--teks-redup);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.kotak-cari-katalog {
+  display: flex;
+  align-items: center;
+  background-color: var(--putih);
+  border: 1.5px solid var(--abu-kebiruan);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px 4px 14px;
+  box-shadow: var(--bayangan-kartu);
+}
+
+.kotak-cari-katalog input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 260px;
+  color: var(--biru-tua);
+}
+
+.layout-grid-katalog {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Panel Filter Sisi Kiri */
+.panel-filter {
+  background-color: var(--putih);
+  padding: 22px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+}
+
+.judul-filter {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--biru-tua);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seksi-filter {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.seksi-filter h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teks-utama);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.daftar-kategori-filter {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-kategori-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--teks-redup);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.item-kategori-filter:hover,
+.item-kategori-filter.aktif {
+  background-color: #ffedd5;
+  color: var(--oranye);
+  font-weight: 700;
+}
+
+.item-kategori-filter .jumlah {
+  background-color: var(--abu-kebiruan);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+}
+
+.kartu-info-filter {
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: #1e40af;
+  line-height: 1.4;
+}
+
+/* Grid Produk Katalog */
+.toolbar-katalog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: var(--putih);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--abu-kebiruan);
+}
+
+.grid-produk-katalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.kartu-katalog-item {
+  background-color: var(--putih);
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.kartu-katalog-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bayangan-hover);
+}
+
+.badge-tag-produk {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--oranye);
+  color: var(--putih);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+}
+
+.badge-tag-promo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #dc2626;
+  color: var(--putih);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+}
+
+.foto-produk-katalog {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #f8fafc;
+}
+
+.info-produk-katalog {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kategori-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teks-redup);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.nama-produk-katalog {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--biru-tua);
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.harga-produk-katalog {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--oranye);
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+/* Banner Promo Bawah */
+.banner-promo-katalog {
+  margin-top: 30px;
+  background: linear-gradient(135deg, var(--biru-tua) 0%, #2a5885 100%);
+  color: var(--putih);
+  padding: 24px 30px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .grid-produk-katalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .layout-grid-katalog {
+    grid-template-columns: 1fr;
+  }
+  .grid-produk-katalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

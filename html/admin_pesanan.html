@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CHILLBITE - Kelola Pesanan</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Papan Kanban 3 Kolom (Mockup 13_admin_pesanan.png) */
+    .papan-kanban-pesanan {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .kolom-kanban {
+      background-color: var(--abu-terang);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--abu-kebiruan);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .kepala-kolom-kanban {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--abu-kebiruan);
+    }
+    .kartu-pesanan-kanban {
+      background-color: var(--putih);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .atas-kartu-pesanan {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .nama-pelanggan-kanban {
+      font-weight: 700;
+      color: var(--biru-tua);
+      font-size: 14px;
+    }
+    .id-pesanan-kanban {
+      font-size: 11px;
+      color: var(--teks-redup);
+    }
+    .total-kanban {
+      font-weight: 800;
+      color: var(--oranye);
+      font-size: 14px;
+    }
+    .item-ringkasan-kanban {
+      font-size: 12px;
+      color: var(--teks-utama);
+      background-color: var(--abu-kebiruan);
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+    .lokasi-kanban {
+      font-size: 11px;
+      color: var(--teks-redup);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    @media (max-width: 900px) {
+      .papan-kanban-pesanan {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-admin">
+    <!-- Sidebar Admin -->
+    <aside class="sidebar-admin">
+      <a href="admin_produk.html" class="sidebar-brand">
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>CHILL</span>BITE
+      </a>
+
+      <ul class="sidebar-menu">
+        <li><a href="beranda.html"><span class="menu-ikon">🏠</span> <span>Beranda</span></a></li>
+        <li><a href="admin_produk.html"><span class="menu-ikon">📦</span> <span>Produk</span></a></li>
+        <li><a href="admin_stok.html"><span class="menu-ikon">📊</span> <span>Stok</span></a></li>
+        <li><a href="admin_pesanan.html" class="aktif"><span class="menu-ikon">📑</span> <span>Pesanan</span></a></li>
+        <li><a href="admin_riwayat.html"><span class="menu-ikon">📈</span> <span>Laporan</span></a></li>
+        <li><a href="admin_profil.html"><span class="menu-ikon">👤</span> <span>Profil</span></a></li>
+        <li><a href="login.html"><span class="menu-ikon">🚪</span> <span>Logout</span></a></li>
+      </ul>
+
+      <div class="kartu-admin-mode">
+        <strong>Admin Mode</strong>
+        Pantau pesanan masuk, ubah status pengiriman, dan selesaikan pesanan dari satu tempat.
+      </div>
+    </aside>
+
+    <!-- Konten Admin -->
+    <main class="konten-admin">
+      <!-- Topbar -->
+      <header class="topbar-admin">
+        <div class="topbar-kiri">
+          <h1>Kelola Pesanan</h1>
+          <p>Pantau status pesanan, pelanggan, dan total transaksi secara real-time.</p>
+        </div>
+
+        <div class="topbar-kanan">
+          <div class="kotak-cari-topbar">
+            <span>🔍</span>
+            <input type="text" placeholder="Cari pesanan, pelanggan, total...">
+          </div>
+          <button class="btn-sekunder" onclick="alert('Data pesanan diekspor ke Excel!')">📥 Ekspor</button>
+        </div>
+      </header>
+
+      <div class="isi-admin">
+        <!-- Toolbar Status Filter -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background-color: var(--putih); padding: 12px 20px; border-radius: var(--radius-md); border: 1px solid var(--abu-kebiruan);">
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-utama" style="padding: 6px 14px; font-size: 13px;">Semua (8)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Diproses (2)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Dikirim (3)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Selesai (3)</button>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 13px;">
+            <span>Periode: <strong>15 - 22 Nov 2026</strong></span>
+            <select style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--abu-kebiruan); outline: none;">
+              <option>Urutkan: Terbaru</option>
+              <option>Urutkan: Terlama</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Papan Tiga Kolom: Diproses (2), Dikirim (3), Selesai (3) -->
+        <div class="papan-kanban-pesanan">
+          
+          <!-- Kolom 1: DIPROSES (2) -->
+          <div class="kolom-kanban">
+            <div class="kepala-kolom-kanban">
+              <span style="font-weight: 800; color: var(--oranye-status);">🕒 Diproses</span>
+              <span class="badge-status status-diproses">2 Pesanan</span>
+            </div>
+
+            <!-- Pesanan 1 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Rina Astuti</div>
+                  <div class="id-pesanan-kanban">#ORD-0843 • 20 Nov, 10.20</div>
+                </div>
+                <div class="total-kanban">Rp 112.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">3 item: Cheese Steak, Udang Keju, Cireng Crispy</div>
+              <div class="lokasi-kanban">📍 Surabaya, Jawa Timur</div>
+              <button class="btn-utama" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px;" onclick="pindahStatus(this, 'dikirim')">
+                🚚 Kirim Pesanan
+              </button>
+            </div>
+
+            <!-- Pesanan 2 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Maya Sari</div>
+                  <div class="id-pesanan-kanban">#ORD-0839 • 16 Nov, 14.05</div>
+                </div>
+                <div class="total-kanban">Rp 135.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">3 item: Dimsum Ayam, Sosis Ayam, Nugget Ayam</div>
+              <div class="lokasi-kanban">📍 Malang, Jawa Timur</div>
+              <button class="btn-utama" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px;" onclick="pindahStatus(this, 'dikirim')">
+                🚚 Kirim Pesanan
+              </button>
+            </div>
+          </div>
+
+          <!-- Kolom 2: DIKIRIM (3) -->
+          <div class="kolom-kanban">
+            <div class="kepala-kolom-kanban">
+              <span style="font-weight: 800; color: var(--biru-status);">🚚 Dikirim</span>
+              <span class="badge-status status-dikirim">3 Pesanan</span>
+            </div>
+
+            <!-- Pesanan 3 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Andi Pratama</div>
+                  <div class="id-pesanan-kanban">#ORD-0845 • 21 Nov, 09.15</div>
+                </div>
+                <div class="total-kanban">Rp 54.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Nugget Ayam, Kentang Goreng</div>
+              <div class="lokasi-kanban">📍 Malang, Jawa Timur</div>
+              <button class="btn-utama" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px; background-color: var(--hijau);" onclick="pindahStatus(this, 'selesai')">
+                ✅ Tandai Selesai
+              </button>
+            </div>
+
+            <!-- Pesanan 4 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Dewi Lestari</div>
+                  <div class="id-pesanan-kanban">#ORD-0841 • 18 Nov, 16.40</div>
+                </div>
+                <div class="total-kanban">Rp 93.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Bakso Sapi, Dimsum Ayam</div>
+              <div class="lokasi-kanban">📍 Sidoarjo, Jawa Timur</div>
+              <button class="btn-utama" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px; background-color: var(--hijau);" onclick="pindahStatus(this, 'selesai')">
+                ✅ Tandai Selesai
+              </button>
+            </div>
+
+            <!-- Pesanan 5 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Joko Prasetyo</div>
+                  <div class="id-pesanan-kanban">#ORD-0837 • 15 Nov, 11.30</div>
+                </div>
+                <div class="total-kanban">Rp 59.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Bakso Sapi, Cireng Crispy</div>
+              <div class="lokasi-kanban">📍 Gresik, Jawa Timur</div>
+              <button class="btn-utama" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px; background-color: var(--hijau);" onclick="pindahStatus(this, 'selesai')">
+                ✅ Tandai Selesai
+              </button>
+            </div>
+          </div>
+
+          <!-- Kolom 3: SELESAI (3) -->
+          <div class="kolom-kanban">
+            <div class="kepala-kolom-kanban">
+              <span style="font-weight: 800; color: var(--hijau);">✅ Selesai</span>
+              <span class="badge-status status-selesai">3 Pesanan</span>
+            </div>
+
+            <!-- Pesanan 6 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Siti Nurhaliza</div>
+                  <div class="id-pesanan-kanban">#ORD-0846 • 22 Nov, 08.50</div>
+                </div>
+                <div class="total-kanban">Rp 78.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Nugget Ayam, Sosis Ayam</div>
+              <div class="lokasi-kanban">📍 Surabaya, Jawa Timur</div>
+              <button class="btn-sekunder" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px;" onclick="alert('Pesanan #ORD-0846 telah selesai dan diterima dengan baik.')">
+                👁 Lihat Detail
+              </button>
+            </div>
+
+            <!-- Pesanan 7 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Budi Santoso</div>
+                  <div class="id-pesanan-kanban">#ORD-0842 • 19 Nov, 13.10</div>
+                </div>
+                <div class="total-kanban">Rp 67.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Kentang Goreng, Bakso Sapi</div>
+              <div class="lokasi-kanban">📍 Malang, Jawa Timur</div>
+              <button class="btn-sekunder" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px;" onclick="alert('Pesanan #ORD-0842 telah selesai dan diterima dengan baik.')">
+                👁 Lihat Detail
+              </button>
+            </div>
+
+            <!-- Pesanan 8 -->
+            <div class="kartu-pesanan-kanban">
+              <div class="atas-kartu-pesanan">
+                <div>
+                  <div class="nama-pelanggan-kanban">Hendra Wijaya</div>
+                  <div class="id-pesanan-kanban">#ORD-0840 • 17 Nov, 15.25</div>
+                </div>
+                <div class="total-kanban">Rp 48.000</div>
+              </div>
+              <div class="item-ringkasan-kanban">2 item: Nugget Ayam, Cireng Crispy</div>
+              <div class="lokasi-kanban">📍 Sidoarjo, Jawa Timur</div>
+              <button class="btn-sekunder" style="width: 100%; justify-content: center; font-size: 12px; padding: 6px;" onclick="alert('Pesanan #ORD-0840 telah selesai dan diterima dengan baik.')">
+                👁 Lihat Detail
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function pindahStatus(btn, target) {
+      alert(`Status pesanan berhasil diperbarui menjadi: ${target.toUpperCase()}`);
+    }
+  </script>
+</body>
+</html>

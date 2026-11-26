@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Keranjang Belanja</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .kontainer-keranjang {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    .tabel-keranjang-box {
+      background-color: var(--putih);
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .produk-info-col {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .produk-info-col img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .btn-hapus-item {
+      color: var(--merah-status);
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .ringkasan-bawah-keranjang {
+      background-color: var(--putih);
+      padding: 24px 30px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn aktif" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <main class="kontainer-keranjang">
+    <!-- Breadcrumb -->
+    <div class="jejak-halaman">
+      <a href="beranda.html">Beranda</a> &gt; <span>Keranjang Belanja</span>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h1 style="font-size: 28px; font-weight: 800; color: var(--biru-tua);">Keranjang Belanja</h1>
+      <p style="color: var(--teks-redup); font-size: 14px;">Selesaikan pesanan frozen food lezat Anda hari ini.</p>
+    </div>
+
+    <!-- Tabel Keranjang (Mockup 07_keranjang.png) -->
+    <div class="tabel-keranjang-box">
+      <table class="tabel-data">
+        <thead>
+          <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th style="text-align: center;">Jumlah</th>
+            <th>Subtotal</th>
+            <th style="text-align: center;">Hapus</th>
+          </tr>
+        </thead>
+        <tbody id="isi-tabel-keranjang">
+          <!-- Item 1: Nugget Ayam Premium -->
+          <tr data-id="1">
+            <td>
+              <div class="produk-info-col">
+                <img src="../assets/images/gambar frozen food.jpg" alt="Nugget Ayam Premium">
+                <div>
+                  <span style="font-size: 11px; font-weight: 700; color: var(--teks-redup);">NUGGET &amp; SOSIS</span>
+                  <h4 style="font-size: 14px; color: var(--biru-tua);">Nugget Ayam Premium</h4>
+                </div>
+              </div>
+            </td>
+            <td style="font-weight: 700;">Rp 45.000</td>
+            <td style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; border: 1px solid var(--abu-kebiruan); border-radius: 6px;">
+                <button onclick="ubahJumlah(1, -1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">-</button>
+                <span id="qty-1" style="padding: 0 10px; font-weight: 700;">2</span>
+                <button onclick="ubahJumlah(1, 1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">+</button>
+              </div>
+            </td>
+            <td style="font-weight: 800; color: var(--oranye);" id="subtotal-1">Rp 90.000</td>
+            <td style="text-align: center;">
+              <button class="btn-hapus-item" onclick="hapusBaris(1)" title="Hapus produk">✕</button>
+            </td>
+          </tr>
+
+          <!-- Item 2: Kentang Goreng Premium -->
+          <tr data-id="2">
+            <td>
+              <div class="produk-info-col">
+                <img src="../assets/images/Supermarket Cold Storage in UAE _ Fresh Food Refrigeration.jpg" alt="Kentang Goreng Premium">
+                <div>
+                  <span style="font-size: 11px; font-weight: 700; color: var(--teks-redup);">CAMILAN</span>
+                  <h4 style="font-size: 14px; color: var(--biru-tua);">Kentang Goreng Premium</h4>
+                </div>
+              </div>
+            </td>
+            <td style="font-weight: 700;">Rp 50.000</td>
+            <td style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; border: 1px solid var(--abu-kebiruan); border-radius: 6px;">
+                <button onclick="ubahJumlah(2, -1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">-</button>
+                <span id="qty-2" style="padding: 0 10px; font-weight: 700;">1</span>
+                <button onclick="ubahJumlah(2, 1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">+</button>
+              </div>
+            </td>
+            <td style="font-weight: 800; color: var(--oranye);" id="subtotal-2">Rp 50.000</td>
+            <td style="text-align: center;">
+              <button class="btn-hapus-item" onclick="hapusBaris(2)" title="Hapus produk">✕</button>
+            </td>
+          </tr>
+
+          <!-- Item 3: Bakso Sapi -->
+          <tr data-id="3">
+            <td>
+              <div class="produk-info-col">
+                <img src="../assets/images/frozen food.jpg" alt="Bakso Sapi">
+                <div>
+                  <span style="font-size: 11px; font-weight: 700; color: var(--teks-redup);">BAKSO</span>
+                  <h4 style="font-size: 14px; color: var(--biru-tua);">Bakso Sapi</h4>
+                </div>
+              </div>
+            </td>
+            <td style="font-weight: 700;">Rp 26.500</td>
+            <td style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; border: 1px solid var(--abu-kebiruan); border-radius: 6px;">
+                <button onclick="ubahJumlah(3, -1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">-</button>
+                <span id="qty-3" style="padding: 0 10px; font-weight: 700;">3</span>
+                <button onclick="ubahJumlah(3, 1)" style="padding: 4px 8px; border: none; background: none; cursor: pointer;">+</button>
+              </div>
+            </td>
+            <td style="font-weight: 800; color: var(--oranye);" id="subtotal-3">Rp 79.500</td>
+            <td style="text-align: center;">
+              <button class="btn-hapus-item" onclick="hapusBaris(3)" title="Hapus produk">✕</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Ringkasan Bawah & Tombol Lanjut ke Checkout -->
+    <div class="ringkasan-bawah-keranjang">
+      <div>
+        <a href="katalog.html" class="btn-sekunder">← Lanjut Belanja</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <div style="text-align: right;">
+          <span style="font-size: 13px; color: var(--teks-redup);">Total Belanja (3 Item):</span>
+          <div style="font-size: 26px; font-weight: 900; color: var(--oranye);" id="total-belanja">Rp 219.500</div>
+        </div>
+        <a href="checkout.html" class="btn-utama" style="padding: 14px 28px; font-size: 15px;">
+          Lanjut ke Checkout &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const items = {
+      1: { harga: 45000, qty: 2 },
+      2: { harga: 50000, qty: 1 },
+      3: { harga: 26500, qty: 3 }
+    };
+
+    function hitungTotal() {
+      let total = 0;
+      let count = 0;
+      for (const id in items) {
+        total += items[id].harga * items[id].qty;
+        count += items[id].qty;
+      }
+      document.getElementById('total-belanja').textContent = CHILLBITE_DATA.formatRupiah(total);
+    }
+
+    function ubahJumlah(id, delta) {
+      if (!items[id]) return;
+      if (items[id].qty + delta >= 1) {
+        items[id].qty += delta;
+        document.getElementById(`qty-${id}`).textContent = items[id].qty;
+        document.getElementById(`subtotal-${id}`).textContent = CHILLBITE_DATA.formatRupiah(items[id].harga * items[id].qty);
+        hitungTotal();
+      }
+    }
+
+    function hapusBaris(id) {
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+      if (row) {
+        row.remove();
+        delete items[id];
+        hitungTotal();
+        CHILLBITE_DATA.tampilkanToast("Item telah dihapus dari keranjang");
+      }
+    }
+  </script>
+</body>
+</html>

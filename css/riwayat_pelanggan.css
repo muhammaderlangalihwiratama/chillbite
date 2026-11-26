@@ -1,0 +1,10 @@
+/* ==========================================================================
+   CHILLBITE - Riwayat Pesanan Pelanggan Stylesheet (css/riwayat_pelanggan.css)
+   ========================================================================== */
+
+.kontainer-riwayat {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 24px;
+  width: 100%;
+}

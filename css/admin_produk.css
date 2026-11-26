@@ -1,0 +1,9 @@
+/* ==========================================================================
+   CHILLBITE - Admin Produk Stylesheet (css/admin_produk.css)
+   ========================================================================== */
+
+.panel-kanan-produk {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

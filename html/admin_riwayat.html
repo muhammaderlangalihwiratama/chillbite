@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CHILLBITE - Riwayat Pesanan & Laporan</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .avatar-inisial {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--abu-kebiruan);
+      color: var(--biru-tua);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 11px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-admin">
+    <!-- Sidebar Admin -->
+    <aside class="sidebar-admin">
+      <a href="admin_produk.html" class="sidebar-brand">
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>CHILL</span>BITE
+      </a>
+
+      <ul class="sidebar-menu">
+        <li><a href="beranda.html"><span class="menu-ikon">🏠</span> <span>Beranda</span></a></li>
+        <li><a href="admin_produk.html"><span class="menu-ikon">📦</span> <span>Produk</span></a></li>
+        <li><a href="admin_stok.html"><span class="menu-ikon">📊</span> <span>Stok</span></a></li>
+        <li><a href="admin_pesanan.html"><span class="menu-ikon">📑</span> <span>Pesanan</span></a></li>
+        <li><a href="admin_riwayat.html" class="aktif"><span class="menu-ikon">📈</span> <span>Laporan</span></a></li>
+        <li><a href="admin_profil.html"><span class="menu-ikon">👤</span> <span>Profil</span></a></li>
+        <li><a href="login.html"><span class="menu-ikon">🚪</span> <span>Logout</span></a></li>
+      </ul>
+
+      <div class="kartu-admin-mode">
+        <strong>Admin Mode</strong>
+        Pantau riwayat pesanan, status pendapatan, dan kelola laporan dari satu tempat.
+      </div>
+    </aside>
+
+    <!-- Konten Admin -->
+    <main class="konten-admin">
+      <!-- Topbar -->
+      <header class="topbar-admin">
+        <div class="topbar-kiri">
+          <h1>Riwayat Pesanan &amp; Laporan Penjualan</h1>
+          <p>Pantau dan kelola riwayat pemesanan frozen food dari admin.</p>
+        </div>
+
+        <div class="topbar-kanan">
+          <div class="kotak-cari-topbar">
+            <span>🔍</span>
+            <input type="text" placeholder="Cari pesanan...">
+          </div>
+          <button class="btn-sekunder" onclick="alert('Laporan penjualan telah diekspor!')">📥 Ekspor</button>
+        </div>
+      </header>
+
+      <div class="isi-admin">
+        <!-- 4 Kartu Ringkasan (Mockup 14_admin_riwayat.png) -->
+        <div class="grid-stats-4">
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Total Pesanan</span>
+            <div class="kartu-stat-nilai">8</div>
+            <span class="kartu-stat-desc">Pesanan aktif di halaman ini</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Selesai</span>
+            <div class="kartu-stat-nilai" style="color: var(--hijau);">3</div>
+            <span class="kartu-stat-desc">Pesanan telah selesai diantar</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Dikirim</span>
+            <div class="kartu-stat-nilai" style="color: var(--biru-status);">3</div>
+            <span class="kartu-stat-desc">Pesanan sedang dalam kurir</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Diproses</span>
+            <div class="kartu-stat-nilai" style="color: var(--oranye-status);">2</div>
+            <span class="kartu-stat-desc">Pesanan sedang disiapkan</span>
+          </div>
+        </div>
+
+        <!-- Toolbar Filter Periode -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background-color: var(--putih); padding: 12px 20px; border-radius: var(--radius-md); border: 1px solid var(--abu-kebiruan);">
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-utama" style="padding: 6px 14px; font-size: 13px;">Semua (8)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Diproses (2)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Dikirim (3)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Selesai (3)</button>
+          </div>
+          <div style="font-size: 13px;">
+            Periode: <strong>15 - 22 Nov 2026</strong>
+          </div>
+        </div>
+
+        <!-- Layout Grid: Tabel Riwayat & Panel Pendapatan -->
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: start;">
+          <!-- Tabel Riwayat 8 Transaksi -->
+          <div class="kartu-tabel">
+            <table class="tabel-data">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Tanggal</th>
+                  <th>Nama Pelanggan</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th style="text-align: center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>22-11-2026</td>
+                  <td><span class="avatar-inisial">S</span> Siti Nurhaliza</td>
+                  <td style="font-weight: 700;">Rp 78.000</td>
+                  <td><span class="badge-status status-selesai">Selesai</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>21-11-2026</td>
+                  <td><span class="avatar-inisial">A</span> Andi Pratama</td>
+                  <td style="font-weight: 700;">Rp 54.000</td>
+                  <td><span class="badge-status status-dikirim">Dikirim</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>20-11-2026</td>
+                  <td><span class="avatar-inisial">R</span> Rina Astuti</td>
+                  <td style="font-weight: 700;">Rp 112.000</td>
+                  <td><span class="badge-status status-diproses">Diproses</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>19-11-2026</td>
+                  <td><span class="avatar-inisial">B</span> Budi Santoso</td>
+                  <td style="font-weight: 700;">Rp 67.000</td>
+                  <td><span class="badge-status status-selesai">Selesai</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>18-11-2026</td>
+                  <td><span class="avatar-inisial">D</span> Dewi Lestari</td>
+                  <td style="font-weight: 700;">Rp 93.000</td>
+                  <td><span class="badge-status status-dikirim">Dikirim</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>17-11-2026</td>
+                  <td><span class="avatar-inisial">H</span> Hendra Wijaya</td>
+                  <td style="font-weight: 700;">Rp 48.000</td>
+                  <td><span class="badge-status status-selesai">Selesai</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>16-11-2026</td>
+                  <td><span class="avatar-inisial">M</span> Maya Sari</td>
+                  <td style="font-weight: 700;">Rp 135.000</td>
+                  <td><span class="badge-status status-diproses">Diproses</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>15-11-2026</td>
+                  <td><span class="avatar-inisial">J</span> Joko Prasetyo</td>
+                  <td style="font-weight: 700;">Rp 59.000</td>
+                  <td><span class="badge-status status-dikirim">Dikirim</span></td>
+                  <td style="text-align: center;"><button class="btn-sekunder" style="padding: 4px 10px;">Detail</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Panel Kanan: Total Pendapatan & Produk Terlaris -->
+          <div>
+            <div class="kartu-stat" style="margin-bottom: 20px;">
+              <span class="kartu-stat-label">Total Pendapatan</span>
+              <div class="kartu-stat-nilai" style="color: var(--oranye); font-size: 28px;">Rp 646.000</div>
+              <span class="kartu-stat-desc">Dari 8 pesanan, 15 - 22 Nov 2026</span>
+            </div>
+
+            <div class="kartu-stat">
+              <span class="kartu-stat-label">Produk Terlaris</span>
+              <ul style="list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Nugget Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Rp 30.000</div>
+                  </div>
+                  <span style="font-weight: 800; color: var(--biru-tua);">24 terjual</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Kentang Goreng</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Rp 27.000</div>
+                  </div>
+                  <span style="font-weight: 800; color: var(--biru-tua);">19 terjual</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Dimsum Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Rp 42.000</div>
+                  </div>
+                  <span style="font-weight: 800; color: var(--biru-tua);">15 terjual</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between;">
+                  <div>
+                    <strong>Bakso Sapi</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Rp 26.500</div>
+                  </div>
+                  <span style="font-weight: 800; color: var(--biru-tua);">11 terjual</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

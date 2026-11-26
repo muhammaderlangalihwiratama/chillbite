@@ -1,0 +1,17 @@
+/* ==========================================================================
+   CHILLBITE - Admin Riwayat & Laporan Stylesheet (css/admin_riwayat.css)
+   ========================================================================== */
+
+.avatar-inisial {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--abu-kebiruan);
+  color: var(--biru-tua);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 11px;
+  margin-right: 8px;
+}

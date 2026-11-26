@@ -1,0 +1,375 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background-color: #fcfaf7;
+  color: #143252;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Lingkaran oranye ikut ter-scroll bersama halaman */
+.lingkaran-oren {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background-color: #ff6b2b;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.oren-1 {
+  top: 120px;
+  right: 32%;
+}
+
+.oren-2 {
+  bottom: 40px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+}
+
+/* Gambar / ikon kecil dekoratif ikut ter-scroll */
+.ikon-kecil {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.ik-1 { top: 38%; left: 48%; }
+.ik-2 { top: 25%; left: 43%; }
+.ik-3 { bottom: 22%; left: 49%; }
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  padding: 16px 40px;
+  border-bottom: 1px solid #eef0f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gambar-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.logo span,
+h1 span,
+h2 span {
+  color: #ff6b2b;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #143252;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.nav a.aktif,
+.nav a:hover {
+  color: #ff6b2b;
+}
+
+/* Layout Utama */
+.konten-utama {
+  max-width: 1120px;
+  margin: 40px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 46px;
+  margin: 0 0 8px 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0 0 6px 0;
+}
+
+.teks-intro {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Showcase Gambar & Label Melayang */
+.wadah-gambar {
+  position: relative;
+  width: 390px;
+  height: 360px;
+  margin-top: 24px;
+}
+
+.lingkaran-biru {
+  width: 310px;
+  height: 310px;
+  background-color: #e6f0f8;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 35px;
+}
+
+.gambar-utama {
+  width: 255px;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(20, 50, 82, 0.12);
+  position: absolute;
+  top: 25px;
+  left: 15px;
+}
+
+.gambar-kecil {
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(20, 50, 82, 0.15);
+  position: absolute;
+  bottom: 20px;
+  right: 35px;
+}
+
+.label-melayang {
+  background-color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  position: absolute;
+}
+
+.l-1 { top: 110px; right: 10px; }
+.l-2 { bottom: 75px; left: -10px; }
+.l-3 { bottom: 0; right: 20px; }
+
+/* Kartu Login */
+.kotak-login {
+  background-color: #ffffff;
+  padding: 34px 30px;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(20, 50, 82, 0.08);
+  max-width: 420px;
+  width: 100%;
+  justify-self: end;
+}
+
+.label-kecil {
+  font-size: 11px;
+  color: #ff6b2b;
+  letter-spacing: 0.5px;
+  margin: 0 0 4px 0;
+}
+
+.kotak-login h2 {
+  font-size: 28px;
+}
+
+.deskripsi {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 4px 0 18px 0;
+}
+
+.tabel-form {
+  width: 100%;
+}
+
+.tabel-form td {
+  padding-top: 8px;
+}
+
+label {
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 11px 14px;
+  background-color: #f3f4f6;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #143252;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ffffff;
+  border-color: #ff6b2b;
+  outline: none;
+}
+
+.baris-opsi {
+  font-size: 12px;
+  color: #6b7280;
+  padding-top: 12px;
+}
+
+.link-lupa {
+  float: right;
+  color: #ff6b2b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-lupa:hover {
+  text-decoration: underline;
+}
+
+.tombol-utama {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff7e42, #ff621f);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 6px 16px rgba(255, 107, 43, 0.25);
+}
+
+.tombol-utama:hover {
+  background: linear-gradient(90deg, #f36d30, #e65212);
+}
+
+.atau {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.tombol-kedua {
+  width: 100%;
+  padding: 11px;
+  background-color: #ffffff;
+  color: #ff6b2b;
+  border: 1.5px solid #ffd4c2;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tombol-kedua:hover {
+  background-color: #fff5f0;
+  border-color: #ff6b2b;
+}
+
+.catatan-aman {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 12px 0 0 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #143252;
+  color: #cbd5e1;
+  padding: 16px 40px;
+  font-size: 13px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsif HP & Tablet */
+@media only screen and (max-width: 850px) {
+  .konten-utama {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .wadah-gambar {
+    margin: 24px auto 0;
+  }
+
+  .kotak-login {
+    margin: 0 auto;
+    justify-self: center;
+    text-align: left;
+  }
+
+  .ikon-kecil {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 20px;
+  }
+
+  .wadah-gambar {
+    width: 300px;
+    height: 290px;
+  }
+
+  .lingkaran-biru {
+    width: 230px;
+    height: 230px;
+    left: 30px;
+  }
+
+  .gambar-utama {
+    width: 190px;
+    height: 190px;
+    top: 15px;
+    left: 10px;
+  }
+
+  .gambar-kecil {
+    width: 120px;
+    height: 120px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .l-1 { top: 75px; right: 0; }
+  .l-2 { bottom: 55px; left: -5px; }
+  .l-3 { bottom: -5px; right: 10px; }
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CHILLBITE - Kelola Stok</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .progress-bar-bg {
+      background-color: var(--abu-kebiruan);
+      border-radius: var(--radius-full);
+      height: 8px;
+      width: 80px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-admin">
+    <!-- Sidebar Admin -->
+    <aside class="sidebar-admin">
+      <a href="admin_produk.html" class="sidebar-brand">
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>CHILL</span>BITE
+      </a>
+
+      <ul class="sidebar-menu">
+        <li><a href="beranda.html"><span class="menu-ikon">🏠</span> <span>Beranda</span></a></li>
+        <li><a href="admin_produk.html"><span class="menu-ikon">📦</span> <span>Produk</span></a></li>
+        <li><a href="admin_stok.html" class="aktif"><span class="menu-ikon">📊</span> <span>Stok</span></a></li>
+        <li><a href="admin_pesanan.html"><span class="menu-ikon">📑</span> <span>Pesanan</span></a></li>
+        <li><a href="admin_riwayat.html"><span class="menu-ikon">📈</span> <span>Laporan</span></a></li>
+        <li><a href="admin_profil.html"><span class="menu-ikon">👤</span> <span>Profil</span></a></li>
+        <li><a href="login.html"><span class="menu-ikon">🚪</span> <span>Logout</span></a></li>
+      </ul>
+
+      <div class="kartu-admin-mode">
+        <strong>Admin Mode</strong>
+        Pantau stok, ubah ketersediaan, dan restock produk frozen dari satu tempat.
+      </div>
+    </aside>
+
+    <!-- Konten Admin -->
+    <main class="konten-admin">
+      <!-- Topbar -->
+      <header class="topbar-admin">
+        <div class="topbar-kiri">
+          <h1>Kelola Stok</h1>
+          <p>Pantau stok produk, ubah status ketersediaan, dan restock dari dashboard admin.</p>
+        </div>
+
+        <div class="topbar-kanan">
+          <div class="kotak-cari-topbar">
+            <span>🔍</span>
+            <input type="text" placeholder="Cari stok produk...">
+          </div>
+          <button class="btn-utama" onclick="alert('Catat stok masuk dari supplier!')">+ Catat Stok Masuk</button>
+        </div>
+      </header>
+
+      <div class="isi-admin">
+        <!-- 4 Kartu Ringkasan Stok (Mockup 12_admin_stok.png) -->
+        <div class="grid-stats-4">
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Total Stok</span>
+            <div class="kartu-stat-nilai">320</div>
+            <span class="kartu-stat-desc">Unit di seluruh produk</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Stok Masuk</span>
+            <div class="kartu-stat-nilai" style="color: var(--hijau);">+120</div>
+            <span class="kartu-stat-desc">Unit masuk 7 hari terakhir</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Stok Keluar</span>
+            <div class="kartu-stat-nilai" style="color: var(--oranye);">86</div>
+            <span class="kartu-stat-desc">Unit terjual 7 hari terakhir</span>
+          </div>
+
+          <div class="kartu-stat">
+            <span class="kartu-stat-label">Perlu Restock</span>
+            <div class="kartu-stat-nilai" style="color: var(--merah-status);">2</div>
+            <span class="kartu-stat-desc">Di bawah batas minimum (20)</span>
+          </div>
+        </div>
+
+        <!-- Filter Tab -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background-color: var(--putih); padding: 12px 20px; border-radius: var(--radius-md); border: 1px solid var(--abu-kebiruan);">
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-utama" style="padding: 6px 14px; font-size: 13px;">Semua (8)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px;">Aman (6)</button>
+            <button class="btn-sekunder" style="padding: 6px 14px; font-size: 13px; color: var(--merah-status);">Menipis (2)</button>
+          </div>
+          <div>
+            <span style="font-size: 13px; color: var(--teks-redup);">Urutkan: </span>
+            <select style="padding: 6px 12px; border-radius: 6px; border: 1.5px solid var(--abu-kebiruan); font-size: 13px; outline: none;">
+              <option>Stok Terendah</option>
+              <option>Stok Tertinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Layout 2 Kolom: Tabel Stok & Aktivitas Stok -->
+        <div style="display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;">
+          <!-- Tabel Stok dengan Batang Progres -->
+          <div class="kartu-tabel">
+            <table class="tabel-data">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Produk</th>
+                  <th>Level Stok</th>
+                  <th>Min.</th>
+                  <th>Status</th>
+                  <th style="text-align: center;">Sesuaikan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <strong>Nugget Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Nugget &amp; Sosis</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 50%; background-color: var(--hijau); display: block;"></span></span>
+                    <span style="font-weight: 700;">50</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <strong>Kentang Goreng</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Camilan</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 70%; background-color: var(--hijau); display: block;"></span></span>
+                    <span style="font-weight: 700;">70</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <strong>Bakso Sapi</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Bakso</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 60%; background-color: var(--hijau); display: block;"></span></span>
+                    <span style="font-weight: 700;">60</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <strong>Dimsum Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Dimsum</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 45%; background-color: var(--hijau); display: block;"></span></span>
+                    <span style="font-weight: 700;">45</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <strong>Sosis Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Nugget &amp; Sosis</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 40%; background-color: var(--hijau); display: block;"></span></span>
+                    <span style="font-weight: 700;">40</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>6</td>
+                  <td>
+                    <strong>Cheese Steak</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Daging &amp; Seafood</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 25%; background-color: var(--oranye); display: block;"></span></span>
+                    <span style="font-weight: 700;">25</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-tersedia">Tersedia</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>7</td>
+                  <td>
+                    <strong>Udang Keju</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Daging &amp; Seafood</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 18%; background-color: var(--merah-status); display: block;"></span></span>
+                    <span style="font-weight: 700; color: var(--merah-status);">18</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-menipis">Menipis</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>8</td>
+                  <td>
+                    <strong>Cireng Crispy</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Camilan</div>
+                  </td>
+                  <td>
+                    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width: 12%; background-color: var(--merah-status); display: block;"></span></span>
+                    <span style="font-weight: 700; color: var(--merah-status);">12</span> / 100
+                  </td>
+                  <td>20</td>
+                  <td><span class="badge-status status-menipis">Menipis</span></td>
+                  <td style="text-align: center;">
+                    <button class="btn-sekunder" style="padding: 2px 8px;">-</button>
+                    <button class="btn-sekunder" style="padding: 2px 8px;">+</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Panel Kanan: Aktivitas Stok & Perlu Restock -->
+          <div>
+            <div class="kartu-stat" style="margin-bottom: 20px;">
+              <span class="kartu-stat-label">Aktivitas Stok (7 Hari)</span>
+              <ul style="list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Nugget Ayam</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Hari ini, 09.15</div>
+                  </div>
+                  <span style="color: var(--hijau); font-weight: 800;">+20 masuk</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Kentang Goreng</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Hari ini, 08.40</div>
+                  </div>
+                  <span style="color: var(--oranye); font-weight: 800;">-5 keluar</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">
+                  <div>
+                    <strong>Cireng Crispy</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">Kemarin, 16.20</div>
+                  </div>
+                  <span style="color: var(--oranye); font-weight: 800;">-8 keluar</span>
+                </li>
+
+                <li style="display: flex; justify-content: space-between;">
+                  <div>
+                    <strong>Bakso Sapi</strong>
+                    <div style="font-size: 11px; color: var(--teks-redup);">21 Nov, 13.05</div>
+                  </div>
+                  <span style="color: var(--hijau); font-weight: 800;">+30 masuk</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="kartu-stat">
+              <span class="kartu-stat-label" style="color: var(--merah-status);">Perlu Restock Segera</span>
+              <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Cireng Crispy</span>
+                  <strong style="color: var(--merah-status);">12 unit</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Udang Keju</span>
+                  <strong style="color: var(--merah-status);">18 unit</strong>
+                </div>
+                <button class="btn-utama" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="alert('Restock pesanan telah dibuat ke supplier!')">
+                  ⚡ Restock Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

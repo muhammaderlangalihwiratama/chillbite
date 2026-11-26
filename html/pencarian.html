@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Hasil Pencarian Produk</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/katalog.css">
+  <link rel="stylesheet" href="../css/pencarian.css">
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn aktif" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <!-- Konten Utama Pencarian -->
+  <main class="kontainer-katalog">
+    <!-- Breadcrumb -->
+    <div class="jejak-halaman">
+      <a href="katalog.html">Katalog</a> &gt; <span>Hasil Pencarian "Nugget"</span>
+    </div>
+
+    <!-- Kotak Pencarian Besar -->
+    <div class="kotak-pencarian-besar">
+      <form action="pencarian.html" method="GET" id="form-pencarian" style="display: flex; gap: 12px;">
+        <input type="text" name="q" id="input-pencarian" value="Nugget" class="input-cari-lebar">
+        <button type="submit" class="btn-utama" style="padding: 12px 24px;">🔍 Cari</button>
+      </form>
+      <div class="info-hasil-pencarian">
+        <h2 style="font-size: 20px; color: var(--biru-tua); font-weight: 800;">Hasil Pencarian</h2>
+        <span style="font-size: 13px; color: var(--teks-redup);" id="jumlah-hasil-cari">Ditemukan <strong>4 produk</strong> dengan kata kunci "Nugget"</span>
+      </div>
+    </div>
+
+    <!-- Grid 8 Produk Hasil Pencarian (Mockup 05_pencarian.png) -->
+    <div class="grid-produk-katalog" style="grid-template-columns: repeat(4, 1fr);">
+      <!-- Item 1 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/gambar frozen food.jpg" alt="Nugget Dinosaurus Anak" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">NUGGET &amp; SOSIS</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Nugget Dinosaurus Anak</a>
+          <span class="harga-produk-katalog">Rp 39.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(1)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/MISI SEAFOOD FLIER DESIGN.jpg" alt="Sosis Ayam" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">NUGGET &amp; SOSIS</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Sosis Ayam</a>
+          <span class="harga-produk-katalog">Rp 25.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(5)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/gambar frozen food.jpg" alt="Nugget Happy Star" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">NUGGET &amp; SOSIS</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Nugget Happy Star</a>
+          <span class="harga-produk-katalog">Rp 41.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(1)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/frozen food.jpg" alt="Bakso Sapi" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">BAKSO</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Bakso Sapi</a>
+          <span class="harga-produk-katalog">Rp 30.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(3)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/gambar ayam.jpeg" alt="Nugget Ayam Premium" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">NUGGET &amp; SOSIS</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Nugget Ayam Premium</a>
+          <span class="harga-produk-katalog">Rp 45.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(1)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/Supermarket Cold Storage in UAE _ Fresh Food Refrigeration.jpg" alt="Kentang Goreng Premium" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">CAMILAN</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Kentang Goreng Premium</a>
+          <span class="harga-produk-katalog">Rp 50.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(2)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 7 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/gambar frozen food.jpg" alt="Nugget Ayam Keju" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">NUGGET &amp; SOSIS</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Nugget Ayam Keju</a>
+          <span class="harga-produk-katalog">Rp 48.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(1)">🛒 Beli</button>
+        </div>
+      </article>
+
+      <!-- Item 8 -->
+      <article class="kartu-katalog-item">
+        <img src="../assets/images/Frozen Foods & Ready Meals Online UAE _ Martoo_ae.jpg" alt="Dimsum Ayam" class="foto-produk-katalog">
+        <div class="info-produk-katalog">
+          <span class="kategori-label">DIMSUM</span>
+          <a href="detail_produk.html" class="nama-produk-katalog">Dimsum Ayam</a>
+          <span class="harga-produk-katalog">Rp 42.000</span>
+          <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(4)">🛒 Beli</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/pencarian.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  background-color: #fcfaf7;
+  color: #143252;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Dekorasi lingkaran latar belakang */
+.lingkaran {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lingkaran-oren-1 {
+  width: 240px;
+  height: 240px;
+  background-color: #ff6b2b;
+  top: 70px;
+  right: -90px;
+}
+
+.lingkaran-oren-2 {
+  width: 220px;
+  height: 220px;
+  background-color: #ff6b2b;
+  bottom: 40px;
+  left: -80px;
+}
+
+.lingkaran-biru-muda {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background-color: #e3eef7;
+  top: 20px;
+  right: 10px;
+  z-index: 0;
+}
+
+/* Header & Navigasi */
+.header {
+  background-color: #ffffff;
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef1f5;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #143252;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.gambar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.header-kanan {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav a.aktif,
+.nav a:hover {
+  color: #ff6b2b;
+}
+
+.ikon-grup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ikon-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #143252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.ikon-link.aktif {
+  background-color: #143252;
+  color: #ffffff;
+}
+
+/* Kontainer Utama Login (Visual Kiri, Form Kanan) */
+.kontainer-login {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 44px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Kolom Visual Kiri */
+.kolom-visual-login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.judul-brand {
+  font-size: 46px;
+  font-weight: 900;
+  color: #143252;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gambar-logo-besar {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.tagline {
+  font-size: 20px;
+  font-weight: 700;
+  color: #143252;
+  margin-bottom: 6px;
+}
+
+.tagline span {
+  color: #ff6b2b;
+}
+
+.sub-tagline {
+  font-size: 13.5px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+/* Area Foto & Badge */
+.area-foto {
+  position: relative;
+  width: 430px;
+  max-width: 100%;
+  height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-utama {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #ffffff;
+  box-shadow: 0 12px 28px rgba(20, 50, 82, 0.12);
+  z-index: 2;
+  align-self: flex-start;
+}
+
+.foto-kedua {
+  position: absolute;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #ffffff;
+  box-shadow: 0 10px 24px rgba(20, 50, 82, 0.14);
+  bottom: 28px;
+  right: 28px;
+  z-index: 3;
+}
+
+.badge {
+  position: absolute;
+  background-color: #ffffff;
+  color: #143252;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(20, 50, 82, 0.08);
+  z-index: 4;
+  white-space: nowrap;
+}
+
+.badge-kualitas {
+  top: 78px;
+  right: 10px;
+}
+
+.badge-beku {
+  bottom: 58px;
+  left: 0;
+}
+
+.badge-kirim {
+  bottom: -6px;
+  right: 54px;
+}
+
+/* Kartu Form Login */
+.kartu-login {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 34px 36px;
+  box-shadow: 0 16px 40px rgba(20, 50, 82, 0.07);
+  border: 1px solid #f1f5f9;
+  width: 100%;
+  max-width: 450px;
+  justify-self: center;
+}
+
+.label-kecil {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ff6b2b;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.judul-form {
+  font-size: 28px;
+  font-weight: 800;
+  color: #143252;
+  margin-bottom: 6px;
+}
+
+.deskripsi-form {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 22px;
+}
+
+.grup-input {
+  margin-bottom: 16px;
+}
+
+.grup-input label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #143252;
+  margin-bottom: 6px;
+}
+
+.kotak-input {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  height: 44px;
+  gap: 8px;
+}
+
+.kotak-input:focus-within {
+  border-color: #ff6b2b;
+}
+
+.ikon-input {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background-color: #fff0e8;
+  color: #ff6b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.kotak-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: #143252;
+  background: transparent;
+}
+
+.ikon-kanan {
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.opsi-baris {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 20px;
+}
+
+.centang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.link-oranye {
+  color: #ff6b2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-oranye:hover {
+  text-decoration: underline;
+}
+
+.tombol-utama {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff6b2b, #ff8533);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(255, 107, 43, 0.28);
+}
+
+.tombol-utama:hover {
+  opacity: 0.94;
+}
+
+.pemisah {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 14px 0;
+}
+
+.tombol-kedua {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #ff6b2b;
+  border: 1.5px solid #ff6b2b;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+.tombol-kedua:hover {
+  background-color: #fff7f2;
+}
+
+.catatan-keamanan {
+  text-align: center;
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 16px;
+}
+
+/* Footer */
+.footer {
+  background-color: #143252;
+  color: #cbd5e1;
+  font-size: 12.5px;
+  padding: 16px 48px;
+  position: relative;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 900px) {
+  .kontainer-login {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .header {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

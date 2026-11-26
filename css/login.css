@@ -1,0 +1,534 @@
+/* ==========================================================================
+   CHILLBITE - Login Stylesheet (css/login.css)
+   Warna & Layout sesuai Desain Mockup Desktop Chillbite
+   ========================================================================== */
+
+:root {
+  --warna-utama: #ff6b2b;
+  --warna-utama-hover: #e05518;
+  --warna-gelap: #143252;
+  --warna-teks: #334155;
+  --warna-teks-terang: #64748b;
+  --warna-bg: #fcfaf7;
+  --warna-putih: #ffffff;
+  --warna-biru-muda: #e3eef7;
+  --warna-garis: #eef1f5;
+  --bayangan-kartu: 0 16px 40px rgba(20, 50, 82, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Trebuchet MS", "Segoe UI", Roboto, sans-serif;
+  background-color: var(--warna-bg);
+  color: var(--warna-gelap);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Dekorasi Lingkaran Oranye */
+.lingkaran {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lingkaran-oren-1 {
+  width: 240px;
+  height: 240px;
+  background-color: var(--warna-utama);
+  top: 70px;
+  right: -90px;
+}
+
+.lingkaran-oren-2 {
+  width: 220px;
+  height: 220px;
+  background-color: var(--warna-utama);
+  bottom: 40px;
+  left: -80px;
+}
+
+/* Header & Navigasi */
+.header {
+  background-color: var(--warna-putih);
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--warna-garis);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--warna-gelap);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.gambar-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.logo span {
+  color: var(--warna-utama);
+}
+
+.header-kanan {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav {
+  list-style-type: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--warna-teks);
+  font-weight: 700;
+  font-size: 14px;
+  transition: color 0.2s ease;
+  padding: 6px 0;
+}
+
+.nav a:hover,
+.nav a.aktif {
+  color: var(--warna-utama);
+}
+
+.ikon-grup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ikon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: var(--warna-gelap);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.ikon-link:hover,
+.ikon-link.aktif {
+  background-color: #ffece2;
+  color: var(--warna-utama);
+}
+
+/* Kontainer Login 2 Kolom */
+.kontainer-login {
+  max-width: 1140px;
+  margin: auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Kolom Visual (Kiri) */
+.kolom-visual-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.judul-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--warna-gelap);
+  margin-bottom: 12px;
+}
+
+.gambar-logo-besar {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.judul-brand span {
+  color: var(--warna-utama);
+}
+
+.tagline {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--warna-gelap);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.tagline span {
+  color: var(--warna-utama);
+}
+
+.sub-tagline {
+  font-size: 15px;
+  color: var(--warna-teks-terang);
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.area-foto {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+}
+
+.lingkaran-biru-muda {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background-color: var(--warna-biru-muda);
+  left: 20px;
+  z-index: 0;
+}
+
+.foto-utama {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--warna-putih);
+  box-shadow: 0 12px 30px rgba(20, 50, 82, 0.12);
+  z-index: 1;
+  left: 30px;
+}
+
+.foto-kedua {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--warna-putih);
+  box-shadow: 0 8px 24px rgba(20, 50, 82, 0.15);
+  bottom: 10px;
+  left: 220px;
+  z-index: 2;
+}
+
+/* Badges */
+.badge {
+  position: absolute;
+  background-color: var(--warna-putih);
+  color: var(--warna-gelap);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-kualitas {
+  top: 20px;
+  left: 230px;
+}
+
+.badge-beku {
+  bottom: 40px;
+  left: 0px;
+}
+
+.badge-kirim {
+  top: 130px;
+  left: 320px;
+}
+
+/* Kartu Login (Kanan) */
+.kartu-login {
+  background-color: var(--warna-putih);
+  padding: 38px 34px;
+  border-radius: 22px;
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--warna-garis);
+  width: 100%;
+}
+
+.label-kecil {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--warna-utama);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.judul-form {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--warna-gelap);
+  margin-bottom: 6px;
+}
+
+.deskripsi-form {
+  font-size: 13px;
+  color: var(--warna-teks-terang);
+  margin-bottom: 24px;
+}
+
+.grup-input {
+  margin-bottom: 18px;
+}
+
+.grup-input label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--warna-gelap);
+  margin-bottom: 8px;
+}
+
+.kotak-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ikon-input {
+  position: absolute;
+  left: 14px;
+  font-size: 15px;
+  opacity: 0.6;
+}
+
+.kotak-input input {
+  width: 100%;
+  padding: 12px 40px 12px 42px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--warna-gelap);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.kotak-input input:focus {
+  outline: none;
+  border-color: var(--warna-utama);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.12);
+}
+
+.ikon-kanan {
+  position: absolute;
+  right: 14px;
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 16px;
+  user-select: none;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.ikon-kanan:hover {
+  opacity: 1;
+}
+
+.opsi-baris {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  font-size: 13px;
+}
+
+.centang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--warna-teks);
+}
+
+.centang input {
+  accent-color: var(--warna-utama);
+}
+
+.link-oranye {
+  color: var(--warna-utama);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.link-oranye:hover {
+  text-decoration: underline;
+}
+
+.tombol-utama {
+  width: 100%;
+  padding: 13px;
+  background-color: var(--warna-utama);
+  color: var(--warna-putih);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(255, 107, 43, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.tombol-utama:hover {
+  background-color: var(--warna-utama-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(255, 107, 43, 0.35);
+}
+
+.pemisah {
+  text-align: center;
+  position: relative;
+  margin: 18px 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.pemisah::before,
+.pemisah::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.pemisah::before {
+  left: 0;
+}
+
+.pemisah::after {
+  right: 0;
+}
+
+.tombol-kedua {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: var(--warna-gelap);
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.tombol-kedua:hover {
+  border-color: var(--warna-utama);
+  color: var(--warna-utama);
+  background-color: #fff9f6;
+}
+
+.catatan-keamanan {
+  text-align: center;
+  font-size: 12px;
+  color: var(--warna-teks-terang);
+  margin-top: 20px;
+}
+
+.pesan-error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 6px;
+  display: none;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  background-color: var(--warna-putih);
+  border-top: 1px solid var(--warna-garis);
+  padding: 20px 5%;
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsivitas */
+@media (max-width: 900px) {
+  .kontainer-login {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px 20px;
+  }
+  .kolom-visual-login {
+    text-align: center;
+    align-items: center;
+  }
+  .judul-brand {
+    justify-content: center;
+  }
+  .area-foto {
+    justify-content: center;
+  }
+  .kartu-login {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 12px 16px;
+  }
+  .nav {
+    display: none;
+  }
+  .area-foto {
+    display: none;
+  }
+}

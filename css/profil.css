@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CHILLBITE - Profil Pelanggan Stylesheet (css/profil.css)
+   ========================================================================== */
+
+.kontainer-profil {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.layout-profil-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.kartu-foto-profil {
+  background-color: var(--putih);
+  padding: 30px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+  text-align: center;
+}
+
+.avatar-profil {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--oranye) 0%, #ff8d28 100%);
+  color: var(--putih);
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+}
+
+.kartu-form-profil {
+  background-color: var(--putih);
+  padding: 32px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+}
+
+.form-group-profil {
+  margin-bottom: 18px;
+}
+
+.form-group-profil label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--biru-tua);
+  margin-bottom: 6px;
+}
+
+.form-group-profil input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--abu-kebiruan);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--biru-tua);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .layout-profil-grid {
+    grid-template-columns: 1fr;
+  }
+}

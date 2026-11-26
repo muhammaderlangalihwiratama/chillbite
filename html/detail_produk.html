@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Nugget Ayam Premium</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/katalog.css">
+  <link rel="stylesheet" href="../css/detail_produk.css">
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="header-pelanggan">
+    <a href="beranda.html" class="brand-logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE">
+      <span>CHILL</span>BITE
+    </a>
+
+    <ul class="nav-tengah">
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html" class="aktif">Katalog</a></li>
+      <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+    </ul>
+
+    <div class="nav-kanan">
+      <a href="pencarian.html" class="nav-ikon-btn" title="Pencarian">🔍</a>
+      <a href="keranjang.html" class="nav-ikon-btn" title="Keranjang Belanja">
+        🛒
+        <span class="badge-counter" id="cart-counter">3</span>
+      </a>
+      <a href="profil.html" class="nav-ikon-btn" title="Profil Akun">👤</a>
+      <a href="admin_produk.html" class="link-ke-admin" title="Dashboard Admin">⚙️ Admin</a>
+    </div>
+  </header>
+
+  <main class="kontainer-detail">
+    <!-- Breadcrumb -->
+    <div class="jejak-halaman">
+      <a href="beranda.html">Beranda</a> &gt; <a href="katalog.html">Katalog</a> &gt; <span>Nugget Ayam Premium</span>
+    </div>
+
+    <!-- Layout Grid Detail Produk -->
+    <div class="layout-detail-grid">
+      <!-- Sisi Kiri: Foto Produk -->
+      <div class="area-foto-detail">
+        <span class="badge-foto-detail">❄️ Beku &amp; Praktis</span>
+        <img src="../assets/images/gambar ayam.jpeg" alt="Nugget Ayam Premium" class="foto-utama-detail">
+      </div>
+
+      <!-- Sisi Kanan: Spesifikasi & Pembelian -->
+      <div class="info-utama-detail">
+        <span class="berat-badge">NUGGET &amp; SOSIS • Berat: 500g</span>
+        <h1 class="nama-produk-besar">Nugget Ayam Premium</h1>
+        
+        <div class="rating-baris">
+          <span class="rating-bintang">⭐⭐⭐⭐⭐ 4,8</span>
+          <span>(126 ulasan pembeli)</span>
+          <span style="margin-left: auto; color: var(--hijau); font-weight: 700;">✅ Stok Tersedia (50 unit)</span>
+        </div>
+
+        <div class="harga-produk-besar">Rp 45.000</div>
+
+        <p class="deskripsi-teks">
+          Dibuat dari daging ayam pilihan berkualitas tinggi yang dibalut dengan tepung roti renyah ekstra emas. Sangat praktis untuk disajikan kapan saja, cukup goreng dalam minyak panas selama 3-5 menit hingga berwarna coklat keemasan. Bebas bahan pengawet buatan dan dijamin halal.
+        </p>
+
+        <!-- 4 Keunggulan Produk -->
+        <div class="grid-keunggulan-produk">
+          <div class="item-keunggulan-detail">✅ Dijamin Halal</div>
+          <div class="item-keunggulan-detail">🍗 Daging Ayam Berkualitas</div>
+          <div class="item-keunggulan-detail">✨ Renyah Sempurna</div>
+          <div class="item-keunggulan-detail">❄️ Beku &amp; Praktis</div>
+        </div>
+
+        <!-- Tombol Aksi Kuantitas & Keranjang -->
+        <div class="aksi-pembelian">
+          <div class="pengatur-kuantitas">
+            <button type="button" id="btn-minus">-</button>
+            <input type="text" id="qty-input" value="1" readonly>
+            <button type="button" id="btn-plus">+</button>
+          </div>
+          <button class="btn-utama" id="btn-tambah-keranjang" style="padding: 12px 28px; font-size: 15px;">
+            🛒 + Tambah ke Keranjang
+          </button>
+          <button class="btn-sekunder" id="btn-favorit" style="padding: 12px;" title="Tambah ke Favorit">🤍</button>
+        </div>
+
+        <p style="font-size: 13px; color: var(--teks-redup); display: flex; align-items: center; gap: 6px;">
+          🚚 Dikirim tetap beku sampai ke rumahmu dengan kemasan insulasi termal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Seksi Ulasan Pembeli -->
+    <section class="seksi-ulasan">
+      <div class="ulasan-header">
+        <div>
+          <h2 style="font-size: 22px; font-weight: 800; color: var(--biru-tua);">Apa Kata Pembeli</h2>
+          <p style="font-size: 14px; color: var(--teks-redup);">Berdasarkan 126 ulasan dari pembeli terverifikasi</p>
+        </div>
+        <button class="btn-sekunder">Tulis Ulasan</button>
+      </div>
+
+      <div class="grid-kartu-ulasan">
+        <!-- Ulasan 1 -->
+        <div class="kartu-ulasan">
+          <div class="pembeli-info">
+            <span class="nama-pembeli">Rina A. ✅</span>
+            <span class="tgl-ulasan">20 Nov 2026</span>
+          </div>
+          <div style="color: #f59e0b; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
+          <p class="komentar-ulasan">
+            "Renyah banget dan dagingnya terasa. Anak-anak suka, tinggal goreng 5 menit sudah siap disajikan. Sangat rekomendasi!"
+          </p>
+        </div>
+
+        <!-- Ulasan 2 -->
+        <div class="kartu-ulasan">
+          <div class="pembeli-info">
+            <span class="nama-pembeli">Budi S. ✅</span>
+            <span class="tgl-ulasan">18 Nov 2026</span>
+          </div>
+          <div style="color: #f59e0b; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
+          <p class="komentar-ulasan">
+            "Pengiriman cepat dan produk masih beku saat sampai. Rasanya enak, porsinya pas untuk persediaan makan keluarga seminggu."
+          </p>
+        </div>
+
+        <!-- Ulasan 3 -->
+        <div class="kartu-ulasan">
+          <div class="pembeli-info">
+            <span class="nama-pembeli">Dewi K. ✅</span>
+            <span class="tgl-ulasan">12 Nov 2026</span>
+          </div>
+          <div style="color: #f59e0b; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
+          <p class="komentar-ulasan">
+            "Rasanya enak dan praktis. Kemasannya sangat rapi dan higienis, semoga nanti ada pilihan kemasan ukuran 1 kg!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seksi Rekomendasi Terkait -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="font-size: 20px; font-weight: 800; color: var(--biru-tua); margin-bottom: 20px;">Rekomendasi Terkait</h2>
+      <div class="grid-produk-katalog" style="grid-template-columns: repeat(3, 1fr);">
+        <article class="kartu-katalog-item">
+          <img src="../assets/images/MISI SEAFOOD FLIER DESIGN.jpg" alt="Sosis Ayam Spesial" class="foto-produk-katalog">
+          <div class="info-produk-katalog">
+            <span class="kategori-label">NUGGET &amp; SOSIS</span>
+            <a href="detail_produk.html" class="nama-produk-katalog">Sosis Ayam Spesial</a>
+            <span class="harga-produk-katalog">Rp 48.000</span>
+            <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(5)">🛒 Beli</button>
+          </div>
+        </article>
+
+        <article class="kartu-katalog-item">
+          <img src="../assets/images/Frozen Foods & Ready Meals Online UAE _ Martoo_ae.jpg" alt="Dimsum Mentai Premium" class="foto-produk-katalog">
+          <div class="info-produk-katalog">
+            <span class="kategori-label">DIMSUM</span>
+            <a href="detail_produk.html" class="nama-produk-katalog">Dimsum Mentai Premium</a>
+            <span class="harga-produk-katalog">Rp 50.000</span>
+            <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(4)">🛒 Beli</button>
+          </div>
+        </article>
+
+        <article class="kartu-katalog-item">
+          <img src="../assets/images/Supermarket Cold Storage in UAE _ Fresh Food Refrigeration.jpg" alt="Kentang Goreng Premium" class="foto-produk-katalog">
+          <div class="info-produk-katalog">
+            <span class="kategori-label">CAMILAN</span>
+            <a href="detail_produk.html" class="nama-produk-katalog">Kentang Goreng Premium</a>
+            <span class="harga-produk-katalog">Rp 50.000</span>
+            <button class="btn-utama btn-beli" onclick="CHILLBITE_DATA.addToCart(2)">🛒 Beli</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pelanggan">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>CHILL</span>BITE</h3>
+        <p>Frozen food pilihan untuk dapur Anda. Bekukan segarnya, nikmati lezatnya.</p>
+      </div>
+      <div class="footer-kolom">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="keranjang.html">Keranjang</a></li>
+        </ul>
+      </div>
+      <div class="footer-kolom">
+        <h4>Akun</h4>
+        <ul>
+          <li><a href="login.html">Masuk</a></li>
+          <li><a href="register.html">Daftar Akun Baru</a></li>
+          <li><a href="riwayat_pelanggan.html">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bawah">
+      &copy; 2026 FROZENFOOD. Teman Setia Dapur Anda.
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const btnMinus = document.getElementById('btn-minus');
+    const btnPlus = document.getElementById('btn-plus');
+    const qtyInput = document.getElementById('qty-input');
+    const btnAdd = document.getElementById('btn-tambah-keranjang');
+
+    btnMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    btnPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      if (val < 50) qtyInput.value = val + 1; // Batas stok 50
+    });
+
+    btnAdd.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      CHILLBITE_DATA.addToCart(1, val);
+    });
+  </script>
+</body>
+</html>

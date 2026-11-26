@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Daftar Akun Baru</title>
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+
+  <!-- Lingkaran Oranye Dekorasi Latar Belakang -->
+  <div class="lingkaran-oren oren-kiri-atas"></div>
+  <div class="lingkaran-oren oren-kiri-bawah"></div>
+  <div class="lingkaran-oren oren-kanan-atas"></div>
+
+  <!-- Gambar / Ikon Kecil Dekoratif -->
+  <span class="ikon-kecil ik-1">❄️</span>
+  <span class="ikon-kecil ik-2">🍦</span>
+  <span class="ikon-kecil ik-3">🤍</span>
+  <span class="ikon-kecil ik-4">🍗</span>
+  <span class="ikon-kecil ik-5">🚚</span>
+
+  <!-- Header & Navigasi -->
+  <header class="header">
+    <a href="beranda.html" class="logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE" class="gambar-logo">
+      <span>CHILL</span>BITE
+    </a>
+
+    <div class="header-kanan">
+      <nav>
+        <ul class="nav">
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+        </ul>
+      </nav>
+
+      <div class="ikon-grup">
+        <a href="pencarian.html" class="ikon-link" title="Cari Produk">🔍</a>
+        <a href="keranjang.html" class="ikon-link" title="Keranjang Belanja">🛒</a>
+        <a href="login.html" class="ikon-link aktif" title="Akun">👤</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Konten Utama (Grid 2 Kolom) -->
+  <main class="konten-utama">
+
+    <!-- Kolom Kiri: Form Registrasi Akun -->
+    <section class="kotak-form">
+      <p class="label-kecil">BUAT AKUN BARU</p>
+      <h2>Daftar Akun</h2>
+      <p class="deskripsi">Buat akun untuk mulai berbelanja frozen food segar favoritmu.</p>
+
+      <div id="pesan-error" class="pesan-error"></div>
+
+      <form id="form-register">
+        <div class="form-baris-dua">
+          <div class="grup-input">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Nama lengkap" autocomplete="name" required>
+          </div>
+          <div class="grup-input">
+            <label for="username">Nama Pengguna</label>
+            <input type="text" id="username" placeholder="Nama pengguna" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="grup-input">
+          <label for="email">Alamat Email</label>
+          <input type="email" id="email" placeholder="nama@email.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-baris-dua">
+          <div class="grup-input">
+            <label for="password">Kata Sandi</label>
+            <input type="password" id="password" placeholder="Minimal 6 karakter" autocomplete="new-password" required>
+          </div>
+          <div class="grup-input">
+            <label for="konfirmasi">Konfirmasi Sandi</label>
+            <input type="password" id="konfirmasi" placeholder="Ulangi kata sandi" autocomplete="new-password" required>
+          </div>
+        </div>
+
+        <div class="baris-opsi">
+          <input type="checkbox" id="setuju" checked required>
+          <label for="setuju">Saya setuju dengan <a href="#" class="link-syarat">Syarat &amp; Ketentuan</a></label>
+        </div>
+
+        <button type="submit" class="tombol-utama">Daftar Sekarang →</button>
+
+        <div class="pemisah">atau</div>
+
+        <a href="login.html" class="tombol-kedua">Masuk dengan Akun Lama</a>
+
+        <p class="catatan-aman">🔒 Data dan privasimu terjaga aman bersama kami</p>
+      </form>
+    </section>
+
+    <!-- Kolom Kanan: Brand & Visual Showcase -->
+    <section class="bagian-kanan">
+      <h1>
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE" class="gambar-logo" style="width: 42px; height: 42px;">
+        CHILL<span>BITE</span>
+      </h1>
+      <h2>Gabung dan nikmati <span>lezatnya!</span></h2>
+      <p class="teks-intro">Satu akun untuk kemudahan belanja stok frozen food keluarga kapan saja.</p>
+
+      <div class="wadah-gambar">
+        <div class="lingkaran-biru"></div>
+        <img src="../assets/images/Supermarket Cold Storage in UAE _ Fresh Food Refrigeration.jpg" alt="Cold Storage CHILLBITE" class="gambar-utama">
+        <img src="../assets/images/gambar frozen food.jpg" alt="Aneka Olahan Frozen Food" class="gambar-kecil">
+
+        <span class="label-melayang l-1">🚚 Pengiriman Cepat</span>
+        <span class="label-melayang l-2">✨ Kualitas Premium</span>
+        <span class="label-melayang l-3">❄️ Tetap Beku</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 CHILLBITE. Teman Setia Dapur Anda.</p>
+  </footer>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHILLBITE - Masuk Akun</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+  <!-- Lingkaran Oranye Dekorasi Latar Belakang -->
+  <div class="lingkaran lingkaran-oren-1"></div>
+  <div class="lingkaran lingkaran-oren-2"></div>
+
+  <!-- Header & Navigasi -->
+  <header class="header">
+    <a href="beranda.html" class="logo">
+      <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE" class="gambar-logo">
+      <span>CHILL</span>BITE
+    </a>
+
+    <div class="header-kanan">
+      <nav>
+        <ul class="nav">
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="beranda.html#langkah-belanja">Tentang</a></li>
+        </ul>
+      </nav>
+
+      <div class="ikon-grup">
+        <a href="pencarian.html" class="ikon-link" title="Cari Produk">🔍</a>
+        <a href="keranjang.html" class="ikon-link" title="Keranjang Belanja">🛒</a>
+        <a href="login.html" class="ikon-link aktif" title="Akun">👤</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Konten Login Utama -->
+  <main class="kontainer-login">
+
+    <!-- Kolom Kiri: Visual & Branding -->
+    <section class="kolom-visual-login">
+      <h1 class="judul-brand">
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo CHILLBITE" class="gambar-logo-besar">
+        CHILL<span>BITE</span>
+      </h1>
+      <p class="tagline">Bekukan Segarnya, Nikmati <span>Lezatnya!</span></p>
+      <p class="sub-tagline">Stok kelezatan frozen food di freezer-mu, siap temani lapar kapan saja.</p>
+
+      <div class="area-foto">
+        <div class="lingkaran-biru-muda"></div>
+        <img src="../assets/images/gambar frozen food.jpg" alt="Aneka Frozen Food CHILLBITE" class="foto-utama">
+        <img src="../assets/images/frozen food.jpg" alt="Kentang Goreng & Camilan" class="foto-kedua">
+
+        <div class="badge badge-kualitas">✨ Kualitas Premium</div>
+        <div class="badge badge-beku">❄️ Tetap Beku</div>
+        <div class="badge badge-kirim">🚚 Pengiriman Cepat</div>
+      </div>
+    </section>
+
+    <!-- Kolom Kanan: Kartu Form Login -->
+    <section class="kartu-login">
+      <p class="label-kecil">SELAMAT DATANG KEMBALI</p>
+      <h2 class="judul-form">Masuk Akun</h2>
+      <p class="deskripsi-form">Masuk untuk lanjut belanja frozen food favoritmu.</p>
+
+      <div id="pesan-error" class="pesan-error"></div>
+
+      <form id="form-login">
+        <div class="grup-input">
+          <label for="username">Nama Pengguna</label>
+          <div class="kotak-input">
+            <span class="ikon-input">👤</span>
+            <input type="text" id="username" placeholder="Masukkan nama pengguna" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="grup-input">
+          <label for="password">Kata Sandi</label>
+          <div class="kotak-input">
+            <span class="ikon-input">🔒</span>
+            <input type="password" id="password" placeholder="Masukkan kata sandi" autocomplete="current-password" required>
+            <button type="button" class="ikon-kanan" id="toggle-password" title="Lihat kata sandi">👁</button>
+          </div>
+        </div>
+
+        <div class="opsi-baris">
+          <label class="centang">
+            <input type="checkbox" id="ingat-saya" checked>
+            <span>Ingat saya</span>
+          </label>
+          <a href="#" class="link-oranye">Lupa kata sandi?</a>
+        </div>
+
+        <button type="submit" class="tombol-utama">Masuk Sekarang →</button>
+
+        <div class="pemisah">atau</div>
+
+        <a href="register.html" class="tombol-kedua">Daftar Akun Baru</a>
+
+        <p class="catatan-keamanan">🛡️ Data dan transaksimu aman bersama kami</p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 CHILLBITE. Teman Setia Dapur Anda.</p>
+  </footer>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

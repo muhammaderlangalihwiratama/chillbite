@@ -1,0 +1,194 @@
+/* ==========================================================================
+   CHILLBITE - Admin Base Layout & Components (css/admin_base.css)
+   ========================================================================== */
+
+.layout-admin {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar-admin {
+  background-color: var(--biru-tua);
+  color: var(--putih);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--putih);
+  text-decoration: none;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.sidebar-brand span {
+  color: var(--oranye);
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c5d8ea;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.aktif {
+  background-color: var(--oranye);
+  color: var(--putih);
+}
+
+.sidebar-menu a .menu-ikon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.kartu-admin-mode {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-size: 12px;
+  margin-top: 20px;
+  color: #d1e2f2;
+  line-height: 1.4;
+}
+
+.kartu-admin-mode strong {
+  display: block;
+  color: var(--oranye);
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.konten-admin {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--biru-muda) 0%, var(--biru-langit) 100%);
+  overflow-y: auto;
+}
+
+.topbar-admin {
+  background-color: var(--putih);
+  border-bottom: 1px solid var(--abu-kebiruan);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-kiri h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--biru-tua);
+}
+
+.topbar-kiri p {
+  font-size: 13px;
+  color: var(--teks-redup);
+  margin-top: 2px;
+}
+
+.topbar-kanan {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.kotak-cari-topbar {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  gap: 8px;
+}
+
+.kotak-cari-topbar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  width: 200px;
+  color: var(--biru-tua);
+}
+
+.link-ke-toko {
+  background-color: var(--oranye);
+  color: var(--putih);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link-ke-toko:hover {
+  background-color: var(--oranye-hover);
+}
+
+.isi-admin {
+  padding: 28px 32px;
+  flex: 1;
+}
+
+.grid-stats-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.kartu-stat {
+  background-color: var(--putih);
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+}
+
+.kartu-stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teks-redup);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kartu-stat-nilai {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--biru-tua);
+  margin: 6px 0;
+}
+
+.kartu-stat-desc {
+  font-size: 12px;
+  color: var(--teks-redup);
+}

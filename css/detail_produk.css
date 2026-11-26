@@ -1,0 +1,211 @@
+/* ==========================================================================
+   CHILLBITE - Detail Produk Stylesheet (css/detail_produk.css)
+   ========================================================================== */
+
+.kontainer-detail {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.layout-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  background-color: var(--putih);
+  padding: 36px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+  margin-bottom: 40px;
+}
+
+.area-foto-detail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-foto-detail {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--biru-tua);
+  color: var(--putih);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.foto-utama-detail {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--abu-kebiruan);
+}
+
+.info-utama-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.berat-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teks-redup);
+  margin-bottom: 6px;
+}
+
+.nama-produk-besar {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--biru-tua);
+  margin-bottom: 8px;
+}
+
+.rating-baris {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--teks-redup);
+  margin-bottom: 16px;
+}
+
+.rating-bintang {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.harga-produk-besar {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--oranye);
+  margin-bottom: 20px;
+}
+
+.deskripsi-teks {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--teks-utama);
+  margin-bottom: 24px;
+}
+
+.grid-keunggulan-produk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.item-keunggulan-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--biru-tua);
+  background-color: var(--abu-kebiruan);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.aksi-pembelian {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pengatur-kuantitas {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--abu-kebiruan);
+  border-radius: var(--radius-sm);
+  background-color: var(--putih);
+}
+
+.pengatur-kuantitas button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--biru-tua);
+}
+
+.pengatur-kuantitas input {
+  width: 48px;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+}
+
+/* Seksi Ulasan Pembeli */
+.seksi-ulasan {
+  background-color: var(--putih);
+  padding: 36px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--bayangan-kartu);
+  border: 1px solid var(--abu-kebiruan);
+  margin-bottom: 40px;
+}
+
+.ulasan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.grid-kartu-ulasan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.kartu-ulasan {
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+}
+
+.pembeli-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.nama-pembeli {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--biru-tua);
+}
+
+.tgl-ulasan {
+  font-size: 12px;
+  color: var(--teks-redup);
+}
+
+.komentar-ulasan {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+@media (max-width: 900px) {
+  .layout-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-kartu-ulasan {
+    grid-template-columns: 1fr;
+  }
+}

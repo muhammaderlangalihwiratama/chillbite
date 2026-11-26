@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CHILLBITE - Kelola Profil Toko & Admin</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .grid-profil-admin {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .kartu-admin-box {
+      background-color: var(--putih);
+      padding: 28px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--bayangan-kartu);
+      border: 1px solid var(--abu-kebiruan);
+      margin-bottom: 24px;
+    }
+    .kartu-admin-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--biru-tua);
+      margin-bottom: 6px;
+    }
+    .form-group-admin {
+      margin-bottom: 16px;
+    }
+    .form-group-admin label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--biru-tua);
+      margin-bottom: 6px;
+    }
+    .form-group-admin input,
+    .form-group-admin textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--abu-kebiruan);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--biru-tua);
+      outline: none;
+      font-family: inherit;
+    }
+    .checklist-keamanan {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--teks-redup);
+    }
+    .checklist-keamanan li.valid {
+      color: var(--hijau);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .grid-profil-admin {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-admin">
+    <!-- Sidebar Admin -->
+    <aside class="sidebar-admin">
+      <a href="admin_produk.html" class="sidebar-brand">
+        <img src="../assets/images/logo chilbite.jpeg" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>CHILL</span>BITE
+      </a>
+
+      <ul class="sidebar-menu">
+        <li><a href="beranda.html"><span class="menu-ikon">🏠</span> <span>Beranda</span></a></li>
+        <li><a href="admin_produk.html"><span class="menu-ikon">📦</span> <span>Produk</span></a></li>
+        <li><a href="admin_stok.html"><span class="menu-ikon">📊</span> <span>Stok</span></a></li>
+        <li><a href="admin_pesanan.html"><span class="menu-ikon">📑</span> <span>Pesanan</span></a></li>
+        <li><a href="admin_riwayat.html"><span class="menu-ikon">📈</span> <span>Laporan</span></a></li>
+        <li><a href="admin_profil.html" class="aktif"><span class="menu-ikon">👤</span> <span>Profil</span></a></li>
+        <li><a href="login.html"><span class="menu-ikon">🚪</span> <span>Logout</span></a></li>
+      </ul>
+
+      <div class="kartu-admin-mode">
+        <strong>Admin Mode</strong>
+        Kelola data toko dan akun admin dari satu tempat.
+      </div>
+    </aside>
+
+    <!-- Konten Admin -->
+    <main class="konten-admin">
+      <!-- Topbar -->
+      <header class="topbar-admin">
+        <div class="topbar-kiri">
+          <h1>Kelola Profil Admin &amp; Informasi Toko</h1>
+          <p>Atur informasi toko, ubah password, dan kelola akses admin.</p>
+        </div>
+
+        <div class="topbar-kanan">
+          <a href="beranda.html" class="link-ke-toko" target="_blank">Lihat Toko ↗</a>
+        </div>
+      </header>
+
+      <div class="isi-admin">
+        <!-- Logo Toko Banner -->
+        <div class="kartu-admin-box" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="../assets/images/logo chilbite.jpeg" alt="Logo Chillbite" style="width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 2px solid var(--abu-kebiruan);">
+            <div>
+              <h2 style="font-size: 20px; font-weight: 800; color: var(--biru-tua);">CHILLBITE Frozen Food Admin</h2>
+              <p style="font-size: 13px; color: var(--teks-redup); margin-top: 4px;">Logo toko saat ini format JPG / PNG, maksimal 2 MB</p>
+            </div>
+          </div>
+          <button class="btn-sekunder" onclick="alert('Pilih berkas logo baru dari komputer Anda.')">🖼️ Ganti Logo</button>
+        </div>
+
+        <div class="grid-profil-admin">
+          <!-- Kolom Kiri: Informasi Toko -->
+          <div class="kartu-admin-box">
+            <h3>Informasi Toko</h3>
+            <p style="font-size: 13px; color: var(--teks-redup); margin-bottom: 20px;">Data utama yang ditampilkan pada profil pelanggan dan faktur belanja.</p>
+
+            <form id="form-toko">
+              <div class="form-group-admin">
+                <label for="nama_toko">Nama Toko</label>
+                <input type="text" id="nama_toko" value="CHILLBITE Frozen Food" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label for="email_toko">Email Toko</label>
+                <input type="email" id="email_toko" value="admin@frozenfood.id" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label for="telp_toko">No. Telepon / WhatsApp</label>
+                <input type="text" id="telp_toko" value="0812 3456 7890" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label for="alamat_toko">Alamat Toko</label>
+                <textarea id="alamat_toko" rows="3">Jl. Melati No. 10, Malang, Jawa Timur</textarea>
+              </div>
+
+              <button type="submit" class="btn-utama">Simpan Perubahan</button>
+            </form>
+          </div>
+
+          <!-- Kolom Kanan: Ubah Password Admin -->
+          <div class="kartu-admin-box">
+            <h3>Ubah Password Admin</h3>
+            <p style="font-size: 13px; color: var(--teks-redup); margin-bottom: 20px;">Perbarui akses admin secara berkala untuk menjaga keamanan akun.</p>
+
+            <form id="form-password-admin">
+              <div class="form-group-admin">
+                <label for="pass_lama">Password Lama</label>
+                <input type="password" id="pass_lama" placeholder="Masukkan password lama" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label for="pass_baru">Password Baru</label>
+                <input type="password" id="pass_baru" placeholder="Masukkan password baru" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label for="pass_konf">Konfirmasi Password Baru</label>
+                <input type="password" id="pass_konf" placeholder="Ulangi password baru" required>
+              </div>
+
+              <ul class="checklist-keamanan">
+                <li class="valid">✓ Minimal 8 karakter</li>
+                <li class="valid">✓ Kombinasi huruf dan angka</li>
+                <li class="valid">✓ Berbeda dari password lama</li>
+              </ul>
+
+              <button type="submit" class="btn-utama" style="margin-top: 20px;">Ubah Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('form-toko').addEventListener('submit', (e) => {
+      e.preventDefault();
+      CHILLBITE_DATA.tampilkanToast("✅ Informasi toko berhasil disimpan!");
+    });
+
+    document.getElementById('form-password-admin').addEventListener('submit', (e) => {
+      e.preventDefault();
+      CHILLBITE_DATA.tampilkanToast("✅ Password admin berhasil diperbarui!");
+    });
+  </script>
+</body>
+</html>
